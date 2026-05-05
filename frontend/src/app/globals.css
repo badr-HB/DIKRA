@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+* {
+  scroll-behavior: smooth;
+}
+
+:root {
+  --bg-main: #161718;
+  --bg-secondary: #A5A5A5;
+  --card: #1A1A1A;
+  --border: #262626;
+  --primary: #FCFF47;
+  --primary-hover: #b0b300;
+  --primary-soft: rgba(124, 92, 255, 0.12);
+
+  --text-main: #FCFF47;
+  --text-secondary: #5C5850;
+  --text-muted: #6B6B6B;
+}
+
+@theme {
+  --font-surgena: 'surgena', sans-serif;
+  --font-poppins: 'poppins', sans-serif;
+}
+
+#unique {
+  @apply text-white hover:bg-(--primary-hover)
+}
+
+#underlines {
+  @apply w-max relative after:content-[""] after:absolute after:-bottom-1.25 after:h-1 after:w-full after:left-0 after:bg-white after:duration-100 after:ease-in-out after:scale-x-0 hover:after:scale-x-100
+}
+
+#icons {
+  @apply w-9 h-9 text-(--primary-hover)
+}
+
+#footer_text {
+  @apply text-[16px] text-gray-400 font-poppins hover:text-white cursor-pointer
+}
