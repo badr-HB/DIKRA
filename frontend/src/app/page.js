@@ -1,6 +1,7 @@
-
+"use client"
 import Image from "next/image";
 import Links from "@/componement/Link.js";
+import { useState, useEffect } from "react";
 import Buttons from "@/componement/buttons.js";
 import { FaHeart, FaUserFriends, FaUserAlt, FaTelegramPlane, FaYoutube } from "react-icons/fa";
 import { IoMdCloudUpload, IoMdPersonAdd } from "react-icons/io";
@@ -10,40 +11,48 @@ import { MdHighQuality } from "react-icons/md";
 import { GrSecure } from "react-icons/gr";
 import { RiAdminLine, RiTwitterXLine } from "react-icons/ri";
 import { PiChatCenteredSlashBold } from "react-icons/pi";
-import { FaLock, FaArrowRightLong, FaEye, FaTiktok } from "react-icons/fa6";
+import { FaLock, FaArrowRightLong, FaEye, FaTiktok, FaBarsStaggered } from "react-icons/fa6";
 import { AiOutlineSafetyCertificate } from "react-icons/ai";
 import { BsInstagram } from "react-icons/bs";
-
+import RespNav from "@/componement/mobileNav.js";
+import { FaXmark } from "react-icons/fa6";
 
 export default function HOME() {
+  const [label, text] = useState("-left-500");
+
   return (
-    <div className="w-full h-screen bg-(--bg-main) flex-1 px-15">
+    <div className="w-full h-screen bg-(--bg-main) flex-1 xl:px-15 px-10">
       {/* navbar */}
       <nav className="w-full h-20 relative flex items-center justify-center ">
         <div className="w-full h-20 flex justify-between items-center fixed px-15 bg-(--bg-main) z-10">
           <Image src={'/dikra-08.svg'} width={110} height={110} alt="logo" />
-          <ol className="cursor-pointer w-4/10 text-[16px] font-poppins font-semibold flex justify-between wrap-anywhere text-white">
+          <ol className="cursor-pointer w-4/10 text-[16px] font-poppins font-semibold lg:flex hidden justify-between wrap-anywhere text-white">
             <li id="underlines"><a href="#HOME">Home</a></li>
             <li id="underlines"><a href="#FEATURES">Features</a></li>
             <li id="underlines"><a href="#EXPLORE">Explore</a></li>
             <li id="underlines"><a href="#HOW_IT_WORKS">How it Works</a></li>
           </ol>
-          <div className="w-2/10 flex gap-5">
+          <div className="xl:w-2/10 lg:flex w-4/12 hidden gap-5">
             <Links children={"Log in"} styling={"bg-transparent text-white border border-white hover:bg-(--bg-secondary)"} />
             <Links children={"Sign up"} change={true} />
+          </div>
+          <button onClick={() => text('left-0')} className="lg:hidden block cursor-pointer"><FaBarsStaggered className="w-10 h-10 text-(--primary)" /></button>
+          <div className={`w-full block lg:hidden absolute left-0 top-0 ${label === "-left-500" ? "-z-10" : "z-10"}`}>
+            <RespNav variable={label} />
+            <button onClick={() => text('-left-500')}><FaXmark className={`w-12 h-12 text-(--primary) absolute top-5 right-15 cursor-pointer duration-800 ease-linear ${label === "-left-500" ? "scale-0" : "scale-100"}`} /></button>
           </div>
         </div>
       </nav>
       {/*  *************  */}
       <main>
-        <section id="HOME" className="w-auto flex items-center justify-center h-140 -mx-15 px-0 bg-[url('../../public/Gemini_Generated_Image_moe58smoe58smoe5.png')] bg-cover bg-no-repeat bg-center">
-          <div className="w-10/12 space-y-7">
-            <h1 className="font-surgena font-black text-(--text-main) text-[50px] leading-[50%]">Share your moments. Privately or publicly</h1>
+        <section id="HOME" className="w-auto flex items-center justify-center h-140 xl:-mx-15 -mx-10 px-0 bg-[url('../../public/Gemini_Generated_Image_moe58smoe58smoe5.png')] bg-cover bg-no-repeat bg-center">
+          <div className="w-10/12 md:space-y-7 space-y-3">
+            <h1 className="font-surgena font-black text-(--text-main) md:text-[50px] text-3xl leading-8 xl:leading-[50%] md:leading-13">Share your moments. Privately or publicly</h1>
             <p className="font-inter font-medium text-[20px] text-white">Upload videos, photos, and records. Share with friends or groups.</p>
-            <div className="w-3/12 flex gap-3">
+            <div className="w-6/12 md:w-3/12 flex gap-3">
               <Links styling={"py-8"} change={true} children={"Get Started"} />
             </div>
-            <div className="w-5/10 flex gap-5">
+            <div className="w-5/10 flex md:flex-row flex-col gap-5">
               <div className="w-fit flex items-center gap-0">
                 <Image src={'/face0.jpg'} width={40} height={40} className="rounded-full object-center object-cover aspect-square" alt="person" />
                 <Image src={'/face4.jpg'} width={40} height={40} className="rounded-full object-center object-cover aspect-square" alt="person" />
@@ -53,14 +62,14 @@ export default function HOME() {
             </div>
           </div>
         </section>
-        <div className="w-full bg-[#262626] border border-[#383838] rounded-4xl py-8 px-35 space-y-6 mt-25 mb-25 font-poppins">
-          <div className="flex w-fit gap-5 items-center place-self-center">
+        <div className="w-full bg-[#262626] border border-[#383838] rounded-4xl py-8 xl:px-35 px-15 md:px-8 space-y-6 mt-25 mb-25 font-poppins">
+          <div className="md:flex w-fit gap-5 items-center place-self-center hidden">
             <p className="font-semibold text-[17px] text-white">Trusted by thousands around the world</p>
             <FaHeart className="text-(--primary) w-7 h-7" />
           </div>
-          <div className="flex items-center justify-between">
+          <div className="w-full flex flex-col md:flex-row items-center md:justify-between justify-center space-y-6 md:space-y-0">
             <div className="flex items-center gap-5">
-              <div className="bg-white w-fit p-5 rounded-full">
+              <div className="bg-white w-fit p-4 rounded-full">
                 <FaUserAlt className="w-8 h-8 " />
               </div>
               <div>
@@ -85,18 +94,18 @@ export default function HOME() {
               </div>
               <div>
                 <p className="font-bold text-4xl text-white">1k+</p>
-                <p className="font-semibold text-[20px] text-gray-400">Groups Created</p>
+                <p className="font-semibold text-[20px] text-gray-400">Groups<br className="block md:hidden" /> Created</p>
               </div>
             </div>
             {/*****************************************************************************/}
           </div>
         </div>
-        <section className="w-auto mb-15 font-poppins flex items-center justify-center space-x-20 bg-[#292929] relative -mx-15 px-0 py-15" id="FEATURES">
-          <MuxPlayer playbackId={'ZGx47GFFEJr2XnGosLew13tyhXlFwfVwktqFL00rbxV8'} accentColor="var(--primary-hover)" className="w-6/12 overflow-hidden rounded-2xl shadow-xl" autoPlay="muted" loop />
-          <div className="h-6/12 space-y-3">
+        <section className="w-auto mb-15 font-poppins flex md:flex-row flex-col items-center justify-center space-x-20 space-y-12 md:space-y-0 bg-[#292929] relative xl:-mx-15 -mx-10 px-0 py-15" id="FEATURES">
+          <MuxPlayer playbackId={'ZGx47GFFEJr2XnGosLew13tyhXlFwfVwktqFL00rbxV8'} accentColor="var(--primary-hover)" className="md:w-6/12 w-11/12 overflow-hidden rounded-2xl shadow-xl ml-20 md:ml-10 xl:ml-0" autoPlay="muted" loop />
+          <div className="h-6/12 space-y-3 ml-5 md:ml-0">
             <p className="text-[16px]  font-medium text-white">SHARE FREELY</p>
-            <h2 className=" font-bold text-[50px] leading-[100%] text-(--primary) font-surgena">Share anything,<br /><span className="">instantly</span></h2>
-            <p className=" font-medium text-[16px] text-gray-300">Upload videos, photos, or records and share<br />them with the world or just your circle.</p>
+            <h2 className=" font-bold md:text-[50px] text-4xl leading-[100%] text-(--primary) font-surgena">Share anything,<br /><span className="">instantly</span></h2>
+            <p className=" font-medium text-[16px] text-gray-300">Upload videos, photos, or records and share<br className="hidden lg:block"/> them with the world or just your circle.</p>
             {/* */}
             <div className="w-full flex items-center gap-7">
               <IoSpeedometer id="icons" />
@@ -124,11 +133,11 @@ export default function HOME() {
           </div>
         </section>
         {/* */}
-        <section className="w-full flex items-center justify-between mb-29 mt-29" id="EXPLORE">
-          <div className="h-4/12 space-y-5">
+        <section className="w-full flex flex-col lg:flex-row items-center justify-between mb-29 mt-29 lg:space-y-0 space-y-20" id="EXPLORE">
+          <div className="w-full md:w-auto h-4/12 space-y-3 md:space-y-6">
             <p className="text-[16px]  font-medium text-white">PRIVATE GROUPS</p>
-            <h2 className=" font-bold text-[50px] leading-[100%] text-(--primary) font-surgena">Create private<br />groups</h2>
-            <p className=" font-medium text-[16px] text-gray-300">Share moments with your closest friends<br />without distractions. No chat. Just memories.</p>
+            <h2 className=" font-bold md:text-[50px] text-4xl leading-[100%] text-(--primary) font-surgena">Create private <br className="hidden lg:block" />groups</h2>
+            <p className=" font-medium text-[16px] text-gray-300">Share moments with your closest friends<br className="hidden lg:block" />without distractions. No chat. Just memories.</p>
             {/* */}
             <div className="w-full flex items-center gap-7">
               <IoMdPersonAdd id="icons" />
@@ -153,29 +162,29 @@ export default function HOME() {
                 <p className=" font-normal text-[16px] text-gray-300">No chats. Just videos, photos, and records.</p>
               </div>
             </div>
-            <div className="w-8/12">
+            <div className="w-9/12">
               <Links styling={"bg-transparent text-white border border-white hover:bg-(--bg-secondary)"} children={"Create your group"} />
             </div>
           </div>
-          <div className="w-8/12 bg-[#292929] p-8 space-y-5 rounded-2xl">
-            <div className="w-full flex items-center justify-between">
+          <div className="lg:w-8/12 w-full md:bg-[#292929] p-8 space-y-10 md:space-y-5 rounded-2xl -mx-10 md:mx-10 px-0 md:px-10">
+            <div className="w-full flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
               <div className="w-full flex items-center gap-3">
                 <Image src={'/pexels-silverkblack-36729906.jpg'} width={85} height={85} className="overflow-hidden aspect-square object-cover rounded-full" alt="group" />
-                <div>
+                <div className="w-full">
                   <p className="text-white text-2xl font-poppins font-semibold">The Friends</p>
                   <p className="text-gray-400 font-poppins font-medium">5 members</p>
                 </div>
               </div>
-              <div className="w-4/12">
+              <div className="w-7/12 md:w-4/12">
                 <Buttons children={"+ Invite"} change={true} />
               </div>
             </div>
-            <div className="w-full space-y-3">
-              <div className="w-full grid grid-cols-3 grid-rows-1 gap-3">
+            <div className="w-full space-y-15 md:space-y-3">
+              <div className="w-full grid grid-cols-2 md:grid-cols-3 grid-rows-1 gap-3">
                 <button className="text-[19px] text-white font-poppins bg-gray-400 py-6 rounded-2xl">Media</button>
                 <button className="text-[19px] text-white font-poppins hover:bg-gray-400 py-6 rounded-2xl">Members</button>
               </div>
-              <div className="w-full h-80 grid grid-cols-3 relative space-y-3 gap-3">
+              <div className="w-full h-300 md:h-80 grid grid-cols-1 md:grid-cols-3 relative space-y-3 gap-3">
                 <div className="relative h-full"><Image src={'/pexels-kiran-patel-83913791-23630487.png'} fill className="rounded-2xl" alt="scene" /></div>
                 <div className="relative h-full"><Image src={'/counter.png'} fill className="rounded-2xl" alt="scene" /></div>
                 <div className="relative h-full"><Image src={'/pexels-francian0-12940327.png'} fill className="rounded-2xl" alt="scene" /></div>
@@ -186,35 +195,35 @@ export default function HOME() {
             </div>
           </div>
         </section>
-        <section className="w-full flex gap-11 mb-20">
-          <div className="w-4/12 rounded-[50px] rounded-bl-none py-5 flex flex-col justify-center items-center space-y-3 bg-[#292929]">
+        <section className="w-full flex flex-col lg:flex-row gap-11 mb-20">
+          <div className="w-full lg:w-4/12 rounded-[50px] rounded-bl-none py-5 flex flex-col justify-center items-center space-y-3 bg-[#292929]">
             <div className="rounded-full bg-black w-18 h-18 flex items-center justify-center">
               <FaLock id="icons" />
             </div>
             <p className="text-2xl text-white font-poppins font-semibold">Private Account</p>
-            <p className="text-[14px] text-gray-400 font-poppins font-medium text-center">keep your account private and<br />control who can see your content.</p>
+            <p className="text-[14px] text-gray-400 font-poppins font-medium text-center">keep your account private and<br className="hidden lg:block" />control who can see your content.</p>
           </div>
-          <div className="w-4/12 rounded-[50px] rounded-bl-none py-5 flex flex-col justify-center items-center space-y-3 bg-[#292929]">
+          <div className="w-full lg:w-4/12 rounded-[50px] rounded-bl-none py-5 flex flex-col justify-center items-center space-y-3 bg-[#292929]">
             <div className="rounded-full bg-black w-18 h-18 flex items-center justify-center">
               <FaUserFriends id="icons" />
             </div>
             <p className="text-2xl text-white font-poppins font-semibold">Group Only Sharing</p>
-            <p className="text-[14px] text-gray-400 font-poppins font-medium text-center">Share your media only with<br />selected groups.</p>
+            <p className="text-[14px] text-gray-400 font-poppins font-medium text-center">Share your media only with<br className="hidden lg:block" />selected groups.</p>
           </div>
-          <div className="w-4/12 rounded-[50px] rounded-bl-none py-5 flex flex-col justify-center items-center space-y-3 bg-[#292929]">
+          <div className="w-full lg:w-4/12 rounded-[50px] rounded-bl-none py-5 flex flex-col justify-center items-center space-y-3 bg-[#292929]">
             <div className="rounded-full bg-black w-18 h-18 flex items-center justify-center">
               <AiOutlineSafetyCertificate id="icons" />
             </div>
             <p className="text-2xl text-white font-poppins font-semibold">Full Control</p>
-            <p className="text-[14px] text-gray-400 font-poppins font-medium text-center">You decide What's public, private,<br />or shared with groups.</p>
+            <p className="text-[14px] text-gray-400 font-poppins font-medium text-center">You decide What's public, private,<br className="hidden lg:block" />or shared with groups.</p>
           </div>
         </section>
         <section className="w-full mb-35" id="HOW_IT_WORKS">
           <div className="w-full space-y-3 mb-24">
             <p className="text-2xl text-white font-poppins font-semibold text-center">HOW IT WORKS</p>
             <h2 className=" font-bold text-[50px] leading-[100%] text-(--primary) font-surgena text-center">Sharing moments is easy</h2>
-            <div className="w-full flex items-center">
-              <div className="w-4/12 flex flex-col items-center justify-center space-y-4">
+            <div className="w-full lg:flex space-y-7 lg:space-y-0">
+              <div className="w-full lg:w-4/12 flex flex-col items-center justify-center space-y-4">
                 <div className="bg-(--bg-secondary) w-14 h-14 flex items-center justify-center rounded-full">
                   <IoMdCloudUpload id="icons" className="text-black!" />
                 </div>
@@ -227,9 +236,9 @@ export default function HOME() {
                 </div>
               </div>
               {/***************************************************************************/}
-              <FaArrowRightLong className="w-fit" id="icons" />
+              <FaArrowRightLong className="w-fit flex place-self-center rotate-90 lg:rotate-0" id="icons" />
               {/***************************************************************************/}
-              <div className="w-4/12 flex flex-col items-center justify-center space-y-4">
+              <div className="w-full lg:w-4/12 flex flex-col items-center justify-center space-y-4">
                 <div className="bg-(--bg-secondary) w-14 h-14 flex items-center justify-center rounded-full">
                   <FaTelegramPlane id="icons" className="text-black!" />
                 </div>
@@ -242,9 +251,9 @@ export default function HOME() {
                 </div>
               </div>
               {/****************************************************************************/}
-              <FaArrowRightLong className="w-fit" id="icons" />
+              <FaArrowRightLong className="w-fit flex place-self-center rotate-90 lg:rotate-0" id="icons" />
               {/***************************************************************************/}
-              <div className="w-4/12 flex flex-col items-center justify-center space-y-4">
+              <div className="w-full lg:w-4/12 flex flex-col items-center justify-center space-y-4">
                 <div className="bg-(--bg-secondary) w-14 h-14 flex items-center justify-center rounded-full">
                   <FaEye id="icons" className="text-black!" />
                 </div>
@@ -258,20 +267,20 @@ export default function HOME() {
               </div>
             </div>
           </div>
-          <div className="w-full h-44 bg-[#292929] rounded-2xl flex items-center justify-center gap-40 shadow-[0px_0px_60px_var(--primary)]">
-            <div className="w-6/12 space-y-2">
-              <h2 className=" font-bold text-[50px] leading-[100%] text-white font-surgena">Start sharing <span className="text-(--primary)">your world</span> today</h2>
-              <p className="font-medium font-poppins text-3xl text-gray-400">Simple. Private. Powerful.</p>
+          <div className="w-full md:h-44 h-55 bg-[#292929] rounded-2xl flex flex-col md:flex-row md:items-center justify-center md:gap-30 pl-5 md:pl-0 space-y-3 md:space-y-0 shadow-[0px_0px_60px_var(--primary)]">
+            <div className="w-full md:w-6/12 space-y-2">
+              <h2 className=" font-bold xl:text-[50px] md:text-[40px] text-3xl leading-[100%] text-white font-surgena">Start sharing <span className="text-(--primary)">your world</span> today</h2>
+              <p className="font-medium font-poppins xl:text-3xl md:text-[20px] text-gray-400">Simple. Private. Powerful.</p>
             </div>
-            <div className="w-2/12">
+            <div className="w-6/12 md:w-3/12">
               <Links styling={'py-8'} change={true} children={'Get Started'} />
             </div>
           </div>
         </section>
       </main>
-      <footer className="w-auto space-y-5 bg-[#121212] py-7 -mx-15 px-15">
-        <div className="w-full flex ">
-          <div className="w-3/12 space-y-3">
+      <footer className="w-auto space-y-5 bg-[#121212] py-7 xl:-mx-15 -mx-10 xl:px-15 px-10">
+        <div className="w-full flex md:flex-row flex-col space-y-10 md:space-y-0">
+          <div className="w-full md:w-3/12 space-y-3">
             <Image src={'/dikra-08.svg'} width={105} height={105} alt="logo" />
             <p className="text-[15px] text-gray-500 font-poppins">A platform to share your<br />moments your way.</p>
             <div className="flex space-x-3">
@@ -281,8 +290,8 @@ export default function HOME() {
               <button className="w-fi h-fit cursor-pointer"><FaTiktok className="w-5 h-5 text-gray-500 hover:text-gray-300" /></button>
             </div>
           </div>
-          <div className="w-3/12 space-y-3">
-            <p className="text-2xl text-white font-poppins">Product</p>
+          <div className="w-full md:w-3/12 space-y-3">
+            <p className="text-[19px] xl:text-2xl text-white font-poppins">Product</p>
             <div className="flex flex-col items-start">
               <button id="footer_text">Features</button>
               <button id="footer_text">Groups</button>
@@ -290,8 +299,8 @@ export default function HOME() {
               <button id="footer_text">Explore</button>
             </div>
           </div>
-          <div className="w-3/12 space-y-3">
-            <p className="text-2xl text-white font-poppins">Company</p>
+          <div className="w-full md:w-3/12 space-y-3">
+            <p className="text-[19px] xl:text-2xl text-white font-poppins">Company</p>
             <div className="flex flex-col items-start">
               <button id="footer_text">About Us</button>
               <button id="footer_text">Contact</button>
@@ -299,8 +308,8 @@ export default function HOME() {
               <button id="footer_text">Careers</button>
             </div>
           </div>
-          <div className="w-3/12 space-y-3">
-            <p className="text-2xl text-white font-poppins">Legal</p>
+          <div className="w-full md:w-3/12 space-y-3">
+            <p className="text-[19px] xl:text-2xl text-white font-poppins">Legal</p>
             <div className="flex flex-col items-start">
               <button id="footer_text">Privacy Policy</button>
               <button id="footer_text">Terms of Service</button>
