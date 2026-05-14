@@ -34,7 +34,7 @@ export default function HOME() {
           </ol>
           <div className="xl:w-2/10 lg:flex w-4/12 hidden gap-5">
             <Links children={"Log in"} styling={"bg-transparent text-white border border-white hover:bg-(--bg-secondary)"} />
-            <Links children={"Sign up"} change={true} />
+            <Links children={"Sign up"} change={true} page={'/sign_up'}/>
           </div>
           <button onClick={() => text('left-0')} className="lg:hidden block cursor-pointer"><FaBarsStaggered className="w-10 h-10 text-(--primary)" /></button>
           <div className={`w-full block lg:hidden absolute left-0 top-0 ${label === "-left-500" ? "-z-10" : "z-10"}`}>
@@ -45,7 +45,7 @@ export default function HOME() {
       </nav>
       {/*  *************  */}
       <main>
-        <section id="HOME" className="w-auto flex items-center justify-center h-140 xl:-mx-15 -mx-10 px-0 bg-[url('../../public/Gemini_Generated_Image_moe58smoe58smoe5.png')] bg-cover bg-no-repeat bg-center">
+        <section id="HOME" className="w-auto flex items-center justify-center h-140 xl:-mx-15 -mx-10 px-0 bg-[url(/Gemini_Generated_Image_moe58smoe58smoe5.png)] bg-cover bg-no-repeat bg-center">
           <div className="w-10/12 md:space-y-7 space-y-3">
             <h1 className="font-surgena font-black text-(--text-main) md:text-[50px] text-3xl leading-8 xl:leading-[50%] md:leading-13">Share your moments. Privately or publicly</h1>
             <p className="font-inter font-medium text-[20px] text-white">Upload videos, photos, and records. Share with friends or groups.</p>
