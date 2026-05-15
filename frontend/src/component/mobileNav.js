@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Links from "@/componement/Link.js";
+import Links from "@/component/Link.js";
 
 export default function HOME({ variable }) {
 
@@ -15,7 +15,7 @@ export default function HOME({ variable }) {
                         <li id="underlines"><a href="#HOW_IT_WORKS">How it Works</a></li>
                     </ol>
                     <div className="w-7/12 sm:w-3/12 space-y-6">
-                        <Links children={"Log in"} styling={"bg-transparent text-white border border-white hover:bg-(--bg-secondary)"} />
+                        <Links children={"Log in"} styling={"bg-transparent text-white border border-white hover:bg-(--bg-secondary)"} page={'/sign_up'}/>
                         <Links children={"Sign up"} change={true} />
                     </div>
                 </div>

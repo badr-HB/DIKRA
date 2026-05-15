@@ -1,8 +1,8 @@
 "use client"
 import Image from "next/image";
-import Links from "@/componement/Link.js";
+import Links from "@/component/Link.js";
 import { useState, useEffect } from "react";
-import Buttons from "@/componement/buttons.js";
+import Buttons from "@/component/buttons.js";
 import { FaHeart, FaUserFriends, FaUserAlt, FaTelegramPlane, FaYoutube } from "react-icons/fa";
 import { IoMdCloudUpload, IoMdPersonAdd } from "react-icons/io";
 import MuxPlayer from '@mux/mux-player-react';
@@ -14,7 +14,7 @@ import { PiChatCenteredSlashBold } from "react-icons/pi";
 import { FaLock, FaArrowRightLong, FaEye, FaTiktok, FaBarsStaggered } from "react-icons/fa6";
 import { AiOutlineSafetyCertificate } from "react-icons/ai";
 import { BsInstagram } from "react-icons/bs";
-import RespNav from "@/componement/mobileNav.js";
+import RespNav from "@/component/mobileNav.js";
 import { FaXmark } from "react-icons/fa6";
 
 export default function HOME() {
@@ -33,7 +33,7 @@ export default function HOME() {
             <li id="underlines"><a href="#HOW_IT_WORKS">How it Works</a></li>
           </ol>
           <div className="xl:w-2/10 lg:flex w-4/12 hidden gap-5">
-            <Links children={"Log in"} styling={"bg-transparent text-white border border-white hover:bg-(--bg-secondary)"} />
+            <Links children={"Log in"} styling={"bg-transparent text-white border border-white hover:bg-(--bg-secondary)"} page={'/log_in'}/>
             <Links children={"Sign up"} change={true} page={'/sign_up'}/>
           </div>
           <button onClick={() => text('left-0')} className="lg:hidden block cursor-pointer"><FaBarsStaggered className="w-10 h-10 text-(--primary)" /></button>
@@ -50,7 +50,7 @@ export default function HOME() {
             <h1 className="font-surgena font-black text-(--text-main) md:text-[50px] text-3xl leading-8 xl:leading-[50%] md:leading-13">Share your moments. Privately or publicly</h1>
             <p className="font-inter font-medium text-[20px] text-white">Upload videos, photos, and records. Share with friends or groups.</p>
             <div className="w-6/12 md:w-3/12 flex gap-3">
-              <Links styling={"py-8"} change={true} children={"Get Started"} />
+              <Links styling={"py-8"} change={true} children={"Get Started"} page={'/sign_up'}/>
             </div>
             <div className="w-5/10 flex md:flex-row flex-col gap-5">
               <div className="w-fit flex items-center gap-0">
@@ -163,7 +163,7 @@ export default function HOME() {
               </div>
             </div>
             <div className="w-9/12">
-              <Links styling={"bg-transparent text-white border border-white hover:bg-(--bg-secondary)"} children={"Create your group"} />
+              <Links styling={"bg-transparent text-white border border-white hover:bg-(--bg-secondary)"} children={"Create your group"} page={'/sign_up'}/>
             </div>
           </div>
           <div className="lg:w-8/12 w-full md:bg-[#292929] p-8 space-y-10 md:space-y-5 rounded-2xl -mx-10 md:mx-10 px-0 md:px-10">
@@ -273,7 +273,7 @@ export default function HOME() {
               <p className="font-medium font-poppins xl:text-3xl md:text-[20px] text-gray-400">Simple. Private. Powerful.</p>
             </div>
             <div className="w-6/12 md:w-3/12">
-              <Links styling={'py-8'} change={true} children={'Get Started'} />
+              <Links styling={'py-8'} change={true} children={'Get Started'} page={'/sign_up'}/>
             </div>
           </div>
         </section>

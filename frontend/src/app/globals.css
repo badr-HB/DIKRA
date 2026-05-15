@@ -38,3 +38,6 @@
 #footer_text {
   @apply text-[16px] text-gray-400 font-poppins hover:text-white cursor-pointer
 }
+#input{
+  @apply placeholder:text-(--bg-secondary) text-white mix-blend-difference border border-(--bg-secondary) w-full h-13 pl-2 md:pl-5 rounded-[13px] focus:outline-(--primary)
+}
