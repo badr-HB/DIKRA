@@ -3,6 +3,7 @@ import Button from "@/component/buttons.js"
 import Links from "@/component/Link.js"
 import Image from "next/image"
 import { useMain } from "@/validations/log_in_input_validations.js"
+import Inputs from "@/component/input.js"
 
 export default function HOME() {
 
@@ -28,18 +29,18 @@ export default function HOME() {
                     </div>
                 </div>
                 <form onSubmit={handleSubmition} className="w-11/12 md:8/12 xl:w-7/12 space-y-4">
-                    <input type="email" placeholder="email" className="" id="input" value={email} onChange={(e) => setEmail(e.target.value)} />
+                    <Inputs types={'email'} place={'email'} valueit={email} setfunction={(e) => setEmail(e.target.value)} />
                     <div className="w-full h-auto">
                         {error?.email && <p className="text-red-400 leading-0 text-center">{`${error?.email}`}</p>}
                     </div>
-                    <input type="password" placeholder="password" className="" id="input" value={password} onChange={(e) => setPassword(e.target.value)} />
+                    <Inputs types={'password'} place={'password'} valueit={password} setfunction={(e) => setPassword(e.target.value)} />
                     <div className="w-full h-auto">
                         {error?.password && <p className="text-red-400 leading-0 text-center break-all">{`${error?.password}`}</p>}
                     </div>
                     <div className="w-7/12 sm:w-6/12 flex place-self-end  place-content-end">
                         <Links styling={'bg-transparent text-blue-400 font-semibold underline hover:text-blue-500 pr-0'} children={'Forgot password?'} page={'/forget_password'} />
                     </div>
-                    <Button change={true} children={'log in'} type={'submit'}/>
+                    <Button change={true} children={'log in'} type={'submit'} />
                 </form>
             </div>
             <div className="w-1/2 hidden md:block h-auto py-6 px-10">

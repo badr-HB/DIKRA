@@ -2,6 +2,7 @@
 import Image from "next/image"
 import Links from "@/component/Link.js"
 import Button from "@/component/buttons.js"
+import Inputs from "@/component/input.js"
 import { useMain } from "@/validations/sign_up_input_validations"
 import { useState } from "react"
 
@@ -41,19 +42,19 @@ export default function HOME() {
                     </div>
                 </div>
                 <form onSubmit={handleSubmit} className="w-11/12 md:8/12 xl:w-7/12 space-y-5">
-                    <input type="text" placeholder="name" className="" id="input" value={name} onChange={(e) => setName(e.target.value)} />
+                    <Inputs types={'text'} place={'name'} valueit={name} setfunction={(e) => setName(e.target.value)} />
                     <div className="w-full h-auto">
                         {error?.user && <p className="text-red-400 leading-0 text-center">{`${error?.user}`}</p>}
                     </div>
-                    <input type="email" placeholder="email" className="" id="input" value={email} onChange={(e) => setEmail(e.target.value)} />
+                    <Inputs types={'email'} place={'email'} valueit={email} setfunction={(e) => setEmail(e.target.value)} />
                     <div className="w-full h-auto">
                         {error?.email && <p className="text-red-400 leading-0 text-center">{`${error?.email}`}</p>}
                     </div>
-                    <input type="password" placeholder="password" className="" id="input" value={password} onChange={(e) => setPassword(e.target.value)} />
+                    <Inputs types={'passowrd'} place={'password'} valueit={password} setfunction={(e) => setPassword(e.target.value)} />
                     <div className="w-full h-auto">
                         {error?.password && <p className="text-red-400 leading-0 text-center break-all">{`${error?.password}`}</p>}
                     </div>
-                    <input type="password" placeholder="confirm password" className="" id="input" value={copy} onChange={(e) => repassword(e.target.value)} />
+                    <Inputs types={'password'} place={'confirm password'} valueit={copy} setfunction={(e) => repassword(e.target.value)} />
                     <div className="w-full h-auto">
                         {notsame && <p className="text-red-400 leading-0 text-center">{`${notsame}`}</p>}
                     </div>
