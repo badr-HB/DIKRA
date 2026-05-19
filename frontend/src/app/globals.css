@@ -34,10 +34,13 @@
 #icons {
   @apply w-9 h-9 text-(--primary-hover)
 }
+#icons1 {
+  @apply w-9 h-9 text-(--primary-hover) hover:text-(--primary)
+}
 
 #footer_text {
   @apply text-[16px] text-gray-400 font-poppins hover:text-white cursor-pointer
 }
 #input{
-  @apply placeholder:text-(--bg-secondary) text-white mix-blend-difference border border-(--bg-secondary) w-full h-13 pl-2 md:pl-5 rounded-[13px] focus:outline-(--primary)
+  @apply placeholder:text-(--bg-secondary) text-white mix-blend-difference border border-(--bg-secondary) w-full h-13 pl-2 md:pl-5 rounded-[13px] focus:outline-(--primary) shadow-[0px_2px_10px] shadow-[#FCFF47]
 }
