@@ -32,7 +32,7 @@ export default function HOME() {
                         <div className="w-full h-auto md:h-90 lg:h-60 bg-(--border) rounded-3xl p-5 flex">
                             <div className="w-10/12 sm:w-full h-auto flex flex-col lg:flex-row items-start gap-5 ">
                                 <div className="w-30 md:w-50 h-30 md:h-50 lg:h-full relative rounded-full aspect-square">
-                                    <Image src={'/1000146233.jpg'} fill alt="group picture" className="object-center object-cover aspect-square rounded-full" />
+                                    <Image src={'/9753369e339a3a93305fa4c533636d3e.jpg'} fill alt="group picture" className="object-center object-cover aspect-square rounded-full" />
                                 </div>
                                 <div className="space-y-1 sm:space-y-5 w-full min-w-60 h-auto">
                                     <p className="font-poppins text-2xl text-white font-medium wrap-break-word">group name</p>

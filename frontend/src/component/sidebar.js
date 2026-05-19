@@ -25,7 +25,7 @@ export default function HOME() {
     }
 
     return (
-        <div className={`${toggle === '-left-52' ? "w-20" : "md:w-100 xl:w-90"} relative z-50`}>
+        <div className={`w-20 relative z-50`}>
             <div className={`w-70 h-screen bg-(--border) fixed ${toggle} duration-500 ease-out flex-1`}>
                 <div className={`w-70 h-full flex-1 flex flex-col py-5 space-y-8 relative ${toggle === '-left-52' ? 'invisible' : 'visible'}`}>
                     <button type="button" className={`absolute right-5 top-2 cursor-pointer visible`} onClick={() => handleclick()}>

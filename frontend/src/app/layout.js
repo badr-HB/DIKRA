@@ -31,6 +31,9 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "Dikra",
   description: "web app for sharing videos and photos",
+  icons : {
+    icon : "/dikra-09.ico",
+  },
 };
 
 export default function RootLayout({ children }) {
