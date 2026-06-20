@@ -6,7 +6,7 @@ import { Overview, Videos, Members } from "@/component/groups_info.js"
 import { useState } from "react"
 
 export default function HOME() {
-    const [display, setfunction] = useState('videos')
+    const [display, setfunction] = useState('overview')
 
     const handleclick = (e) => {
         if (e === 1) {

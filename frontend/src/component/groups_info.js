@@ -74,12 +74,22 @@ export const Overview = () => {
 
 export const Videos = () => {
     return (
-        <section className="w-full">
+        <section className="w-full flex flex-col gap-10">
             <div className="w-full flex flex-col sm:flex-row justify-between space-y-7 sm:space-y-0">
                 <h2 className="text-[30px] text-(--primary) font-poppins font-bold">Videos</h2>
                 <div className="xl:w-3/12 lg:w-5/12 w-full sm:w-1/2">
-                    <Inputs types={'search'} place={'search videos...'} style={'py-7'}/>
+                    <Inputs types={'search'} place={'search videos...'} style={'py-7'} />
                 </div>
+            </div>
+            <div className="w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
+                <div className="space-y-2">
+                    <video controls playsInline className="rounded-2xl w-full h-60 object-cover aspect-video">
+                        <source src="/videos/cs2(2).mp4" type="video/mp4" />
+                    </video>
+                    <p className="font-poppins text-gray-300 wrap-break-words">cs2 clutch 1vs5 pistol round</p>
+                    <p className="font-poppins text-(--primary) font-medium">shared by badr</p>
+                </div>
+
             </div>
         </section>
     )
@@ -87,8 +97,15 @@ export const Videos = () => {
 
 export const Members = () => {
     return (
-        <main>
-            <h1 className="text-green-700">jew</h1>
-        </main>
+        <section className="w-full h-full">
+            <div className="w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
+                <Link href={'/'} className="w-full h-25 bg-(--border) rounded-2xl flex items-center space-x-5">
+                    <div className="w-18 h-18 rounded-full bg-(--primary) ml-5">
+                        {/*image here*/}
+                    </div>
+                    <p className="font-poppins text-white font-medium">user name</p>
+                </Link>
+            </div>
+        </section>
     )
 }
